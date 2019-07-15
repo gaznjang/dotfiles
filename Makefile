@@ -1,4 +1,4 @@
-init: neovim profile
+init: neovim profile bashrc
 
 .PHONY: neovim
 neovim:
@@ -9,3 +9,8 @@ neovim:
 profile:
 	cp ~/.profile ~/.profile.old
 	ln -sf `pwd`/profile ~/.profile
+
+.PHONY: bashrc
+bashrc:
+	cp ~/.bashrc ~/.bashrc.old
+	ln -sf `pwd`/bashrc ~/.bashrc
