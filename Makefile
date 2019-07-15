@@ -1,4 +1,4 @@
-init: neovim profile bashrc
+init: neovim profile bashrc tmux
 
 .PHONY: neovim
 neovim:
@@ -14,3 +14,8 @@ profile:
 bashrc:
 	cp ~/.bashrc ~/.bashrc.old
 	ln -sf `pwd`/bashrc ~/.bashrc
+
+.PHONY: tmux
+tmux:
+	ln -sf `pwd`/.tmux/.tmux.conf ~/.tmux.conf
+	ln -sf `pwd`/.tmux/.tmux.conf.local ~/.tmux.conf.local
