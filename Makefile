@@ -7,5 +7,5 @@ neovim:
 
 .PHONY: profile
 profile:
-	rm ~/.profile
+	cp ~/.profile ~/.profile.old
 	ln -sf `pwd`/profile ~/.profile
