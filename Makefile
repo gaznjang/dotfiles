@@ -23,5 +23,11 @@ bashrc:
 
 .PHONY: tmux
 tmux:
+ifeq ("$(wildcard `pwd`/.tmux/README.md)", "")
+	git submodule init
+	git submodule update
+	cd .tmux
+	git checkout master
+endif
 	ln -sf `pwd`/.tmux/.tmux.conf ~/.tmux.conf
 	ln -sf `pwd`/.tmux/.tmux.conf.local ~/.tmux.conf.local
