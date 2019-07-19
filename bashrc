@@ -177,3 +177,7 @@ fi
 function gvim() {
   nohup /usr/bin/gvim -f "$@" >& /dev/null
 }
+
+EDITOR=nvim
+VISUAL=$EDITOR
+export EDITOR VISUAL
