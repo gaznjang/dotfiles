@@ -34,5 +34,7 @@ endif
 
 .PHONY: ssh_config
 ssh_config:
+ifneq ("$(wildcard ~/.ssh/config)", "")
 	rm ~/.ssh/config
+endif
 	ln -sf `pwd`/ssh_config ~/.ssh/config
