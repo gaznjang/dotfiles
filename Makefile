@@ -1,4 +1,4 @@
-init: neovim profile bashrc tmux
+init: neovim profile bashrc tmux ssh_config
 
 .PHONY: neovim
 neovim:
@@ -31,3 +31,8 @@ ifeq ("$(wildcard `pwd`/.tmux/README.md)", "")
 endif
 	ln -sf `pwd`/.tmux/.tmux.conf ~/.tmux.conf
 	ln -sf `pwd`/.tmux/.tmux.conf.local ~/.tmux.conf.local
+
+.PHONY: ssh_config
+ssh_config:
+	rm ~/.ssh/config
+	ln -sf `pwd`/ssh_config ~/.ssh/config

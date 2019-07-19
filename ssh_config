@@ -1,0 +1,6 @@
+ForwardAgent yes
+ForwardX11 yes
+ForwardX11Trusted yes
+
+# Debian's default setting
+ServerAliveInterval 120
