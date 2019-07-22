@@ -1,4 +1,4 @@
-init: neovim profile bashrc tmux ssh_config
+init: neovim profile bashrc tmux ssh_config gitconfig
 
 .PHONY: neovim
 neovim:
@@ -38,3 +38,10 @@ ifneq ("$(wildcard ~/.ssh/config)", "")
 	rm ~/.ssh/config
 endif
 	ln -sf `pwd`/ssh_config ~/.ssh/config
+
+.PHONY: gitconfig
+gitconfig:
+ifneq ("$(wildcard ~/.gitconfig)", "")
+	rm ~/.gitconfig
+endif
+	ln -sf `pwd`/gitconfig ~/.gitconfig

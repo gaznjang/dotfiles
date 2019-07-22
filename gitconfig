@@ -1,0 +1,16 @@
+[user]
+	name = Richman Chang
+	email = gaznjang@gmail.com
+[push]
+	default = simple
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	log = auto
+[core]
+	whitespace = cr-at-eol
+[alias]
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	graph = log --graph --pretty=oneline --abbrev-commit --simplify-by-decoration --decorate --all
+	logline = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
