@@ -181,3 +181,8 @@ function gvim() {
 EDITOR=nvim
 VISUAL=$EDITOR
 export EDITOR VISUAL
+
+# environment for ibus
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
