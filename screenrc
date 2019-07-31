@@ -1,0 +1,15 @@
+#設定 $TERM 為 xterm-256color
+term xterm-256color
+
+#設定 xterm window size
+termcapinfo xterm* 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+
+#讓畫面可以用滑鼠上下捲動
+termcapinfo xterm* ti@:te@
+
+#將 meta key 從 ^a remap 到 ^z e
+#escape ^zz
+
+#設定最後一行為狀態列
+hardstatus alwayslastline
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r} (%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'

@@ -53,3 +53,10 @@ ifneq ("$(wildcard ~/.gitconfig)", "")
 	rm ~/.gitconfig
 endif
 	ln -sf `pwd`/gitconfig ~/.gitconfig
+
+.PHONY: screenrc
+screenrc:
+ifneq ("$(wildcard ~/.screenrc)", "")
+	mv ~/.screenrc ~/.screenrc.old
+endif
+	ln -sf `pwd`/screenrc ~/.screenrc
