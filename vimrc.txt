@@ -1,0 +1,194 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+Plugin 'snipMate'
+Plugin 'Tagbar'
+Plugin 'AutoComplPop'
+Plugin 'Auto-Pairs'
+"Syntastic is a syntax checking plugin for Vim that runs files through
+"external syntax checkers and displays any resulting errors to the user.
+Plugin 'Syntastic'
+Plugin 'Valloric/YouCompleteMe'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList          - list configured plugins
+" :PluginInstall(!)    - install (update) plugins
+" :PluginSearch(!) foo - search (or refresh cache first) for foo
+" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+" for Syntastic
+let g:syntastic_check_on_open=1
+let g:syntastic_cpp_check_header = 1
+"let g:syntastic_cpp_no_include_search = 0
+"let g:syntastic_cpp_no_default_include_dirs = 0
+"let g:syntastic_cpp_auto_refresh_includes = 1
+let g:syntastic_cpp_include_dirs = [ '/usr/include/unittest++' ]
+"let g:syntastic_cpp_remove_include_errors = 1
+
+set guifont=Consolas\ 16
+" 游標移動後, 一樣可以用 backsapce, del 等刪除動作
+set bs=2
+
+":highlight 可以看到所有的顏色
+" save .vimrc, auto exec, .vimrc 如果存檔, 就會立刻實現
+autocmd! bufwritepost .vimrc source %
+
+syntax on
+set t_Co=256
+colorscheme darkblue
+
+" /usr/share/vim/vim63/colors/desert.vim
+highlight Search term=reverse ctermbg=4 ctermfg=7
+highlight Normal ctermbg=black ctermfg=white
+highlight Folded ctermbg=black ctermfg=darkcyan
+hi Comment ctermbg=black ctermfg=darkcyan
+
+" Highlight current line
+set cursorline
+
+" 下面出現狀態列(命令列)
+set ls=2
+set statusline=%<%f\ %m%=\ %h%r\ %-19([%p%%]\ %3l,%02c%03V%)%y
+highlight StatusLine ctermfg=blue ctermbg=white
+" 設定狀態列行數(命令列高度)
+set cmdheight=3
+
+" Search with ignore case
+"set ignorecase
+" 搜尋到的字加 hilight
+set hlsearch
+
+set number
+" Disables automatic C program indenting (Enable with cindent)
+
+" Copy the structure of the existing lines indent when autoindenting a new line
+"set copyindent
+set nocindent
+
+" Copy indent from current line when starting a new line (typing <CR>
+" in Insert mode or when using the "o" or "O" command)
+" 當新行產生時，會從目前的行複製其縮排的格式給它
+set autoindent
+
+" Do smart autoindenting when starting a new line
+set smartindent
+
+set nowrap
+
+" Global settings for all files (but may be overridden in ftplugin).
+" \t 會以 4個空格代替
+set expandtab
+" tab 的字元寬度為 4
+set tabstop=4
+" 用 4 個空格取代 1 個 tab
+set softtabstop=4
+" 用 >> 來縮排時, 縮排一次的字元寬度
+set shiftwidth=4
+
+" :sp 開檔時, 上面會列出所有檔案
+set wildmenu
+
+" UTF-8 Big5 Setting
+" 以下四個設下去. vim 編出來都是 utf-8 編碼的.
+set fileencodings=utf-8
+" 檔案存檔會存成utf-8編碼
+set termencoding=utf-8
+set enc=utf-8
+set tenc=utf8
+
+"imap <C-n> <Esc>:w<CR><Esc>
+"nnoremap <silent> <F9> :set paste<CR>
+nnoremap <silent> <F12> :TagbarToggle<CR>
+
+nnoremap <silent> <F9> :wincmd p<CR>
+nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
+nnoremap <c-]> g<c-]>
+vnoremap <c-]> g<c-]>
+
+" 會自動到最後離開的位置
+if has("autocmd")
+    autocmd BufRead *.txt set tw=78
+    autocmd BufReadPost *
+    \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+    \   exe "normal g'\"" |
+    \ endif
+endif
+
+nnoremap <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+
+" for cscope
+if has("cscope")
+    set csprg=/usr/bin/cscope
+    set csto=0
+    set cst
+    set nocsverb
+    " add any database in current directory
+    if filereadable("cscope.out")
+        cs add cscope.out
+    " else add database pointed to by environment
+    elseif $CSCOPE_DB != ""
+        cs add $CSCOPE_DB
+    endif
+    set csverb
+endif
+
+function! LoadCscope()
+  let db = findfile("cscope.out", ".;")
+  if (!empty(db))
+    let path = strpart(db, 0, match(db, "/cscope.out$"))
+    set nocscopeverbose " suppress 'duplicate connection' error
+    exe "cs add " . db . " " . path
+    set cscopeverbose
+  endif
+endfunction
+au BufEnter /* call LoadCscope()
+
+nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+
+" for JSON syntax highlight
+autocmd BufNewFile,BufRead system_config set filetype=json
+autocmd BufNewFile,BufRead menu_config set filetype=json
+autocmd BufNewFile,BufRead system_tester set filetype=json
+autocmd BufNewFile,BufRead memory_tester set filetype=json
+autocmd BufNewFile,BufRead stress_tester set filetype=json
+
+function SetPep8Identation()
+    set tabstop=4
+    set softtabstop=4
+    set shiftwidth=4
+    set textwidth=79
+    set expandtab
+    set autoindent
+    set fileformat=unix
+endfunction
+
+" for PEP 8 indentation
+"au BufNewFile,BufRead *.py call SetPep8Identation()

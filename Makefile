@@ -1,4 +1,4 @@
-init: base neovim profile bashrc tmux ssh_config gitconfig
+init: base neovim profile bashrc tmux ssh_config gitconfig vim
 
 .PHONY: base
 base:
@@ -60,3 +60,10 @@ ifneq ("$(wildcard ~/.screenrc)", "")
 	mv ~/.screenrc ~/.screenrc.old
 endif
 	ln -sf `pwd`/screenrc ~/.screenrc
+
+.PHONY: vim
+vim:
+	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+	ln -sf `pwd`/vimrc.txt ~/.vimrc
+	vim +PluginInstall +qall
+	python3 ~/.vim/bundle/YouCompleteMe/install.py --clang-completer
