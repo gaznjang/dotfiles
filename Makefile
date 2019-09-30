@@ -1,4 +1,4 @@
-init: base neovim profile bashrc tmux ssh_config gitconfig vim
+init: base neovim profile bashrc tmux ssh_config gitconfig vim ime
 
 .PHONY: base
 base:
@@ -104,3 +104,16 @@ consolas:
 	sudo cp -r ~/Dropbox/private/consolas /usr/share/fonts/truetype/
 	sudo fc-cache
 	fc-list | grep consola
+
+.PHONY: ime
+ime:
+	sudo aptitude install ibus-table
+	sudo aptitude install ibus-chewing
+
+.PHONY: dayi3
+dayi3:
+	ibus-table-createdb -s ~/Dropbox/private/dayi3-ibus.txt -n /tmp/Dayi3.db -d
+	sudo cp -v /tmp/Dayi3.db /usr/share/ibus-table/tables/
+	sudo cp -v ~/Dropbox/private/Dayi.png /usr/share/ibus-table/icons/
+	ibus-daemon -x -r -d
+	ibus-setup
