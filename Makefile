@@ -7,6 +7,7 @@ base:
 	sudo aptitude install python3-pip
 	sudo aptitude install htop
 	sudo aptitude install build-essential
+	sudo aptitude install cmake
 
 .PHONY: neovim
 neovim:
