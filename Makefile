@@ -8,6 +8,9 @@ base:
 	sudo aptitude install htop
 	sudo aptitude install build-essential
 	sudo aptitude install cmake
+	sudo aptitude install rsync
+	sudo aptitude install meld
+	sudo aptitude install git
 
 .PHONY: neovim
 neovim:
