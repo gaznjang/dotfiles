@@ -74,3 +74,27 @@ endif
 	ln -sf `pwd`/vimrc.txt ~/.vimrc
 	vim +PluginInstall +qall
 	python3 ~/.vim/bundle/YouCompleteMe/install.py --clang-completer
+
+.PHONY: dropboxd
+dropboxd:
+ifneq ("$(wildcard ~/.dropbox-dist/dropboxd)", "")
+	rm -rf ~/.dropbox-dist/dropboxd
+endif
+	cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+	~/.dropbox-dist/dropboxd
+
+.PHONY: dropbox
+dropbox:
+ifneq ("$(wildcard /usr/local/bin/dropbox)", "")
+	sudo rm -rf /usr/local/bin/dropbox
+endif
+	sudo wget -O /usr/local/bin/dropbox "https://www.dropbox.com/download?dl=packages/dropbox.py"
+	sudo chmod a+x /usr/local/bin/dropbox
+	dropbox
+
+.PHONY: gnote
+gnote:
+ifneq ("$(wildcard ~/.local/share/gnote)", "")
+	rm -rf ~/.local/share/gnote
+endif
+	ln -s ~/Dropbox/gnote ~/.local/share/
