@@ -64,6 +64,9 @@ endif
 
 .PHONY: vim
 vim:
+ifneq ("$(wildcard ~/.vim/bundle/Vundle.vim)", "")
+	rm -rf ~/.vim/bundle/Vundle.vim
+endif
 	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	ln -sf `pwd`/vimrc.txt ~/.vimrc
 	vim +PluginInstall +qall
