@@ -98,3 +98,9 @@ ifneq ("$(wildcard ~/.local/share/gnote)", "")
 	rm -rf ~/.local/share/gnote
 endif
 	ln -s ~/Dropbox/gnote ~/.local/share/
+
+.PHONY: consolas
+consolas:
+	sudo cp -r ~/Dropbox/private/consolas /usr/share/fonts/truetype/
+	sudo fc-cache
+	fc-list | grep consola
