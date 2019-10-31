@@ -210,3 +210,6 @@ export EDITOR VISUAL
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
+
+# set date/time display language
+export LC_TIME=en_US.UTF-8
