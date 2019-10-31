@@ -117,3 +117,12 @@ dayi3:
 	sudo cp -v ~/Dropbox/private/Dayi.png /usr/share/ibus-table/icons/
 	ibus-daemon -x -r -d
 	ibus-setup
+
+.PHONY: dict
+dict:
+	sudo tar xjf ~/Dropbox/books/dictionaryFiles/stardict-cdict-big5-2.4.2.tar.bz2 -C /usr/share/stardict/dic/
+	sudo tar xjf ~/Dropbox/books/dictionaryFiles/stardict-cedict-big5-2.4.2.tar.bz2 -C /usr/share/stardict/dic/
+	sudo tar xjf ~/Dropbox/books/dictionaryFiles/stardict-oxford-big5-2.4.2.tar.bz2 -C /usr/share/stardict/dic/
+	sudo tar xjf ~/Dropbox/books/dictionaryFiles/stardict-oxford_collocations-2.4.2.tar.bz2 -C /usr/share/stardict/dic/
+	sudo tar xjf ~/Dropbox/books/dictionaryFiles/stardict-xdict-ce-big5-2.4.2.tar.bz2 -C /usr/share/stardict/dic/
+	sudo tar xjf ~/Dropbox/books/dictionaryFiles/stardict-xdict-ec-big5-2.4.2.tar.bz2 -C /usr/share/stardict/dic/
