@@ -216,3 +216,8 @@ export LC_TIME=en_US.UTF-8
 
 # set PATH
 PATH=/sbin:/home/richman/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+
+# Load pyenv automatically
+export PATH="/home/richman/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
