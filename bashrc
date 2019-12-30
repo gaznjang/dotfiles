@@ -213,3 +213,6 @@ export QT_IM_MODULE=ibus
 
 # set date/time display language
 export LC_TIME=en_US.UTF-8
+
+# set PATH
+PATH=/sbin:/home/richman/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
