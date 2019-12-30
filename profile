@@ -26,6 +26,9 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+# set PATH to add sbin
+PATH="/usr/local/sbin:/usr/sbin:/sbin:$PATH"
+
 EDITOR=nvim
 VISUAL=$EDITOR
 export EDITOR VISUAL
