@@ -126,3 +126,7 @@ dict:
 	sudo tar xjf ~/Dropbox/books/dictionaryFiles/stardict-oxford_collocations-2.4.2.tar.bz2 -C /usr/share/stardict/dic/
 	sudo tar xjf ~/Dropbox/books/dictionaryFiles/stardict-xdict-ce-big5-2.4.2.tar.bz2 -C /usr/share/stardict/dic/
 	sudo tar xjf ~/Dropbox/books/dictionaryFiles/stardict-xdict-ec-big5-2.4.2.tar.bz2 -C /usr/share/stardict/dic/
+
+.PHONY: pyenv
+pyenv:
+	curl https://pyenv.run | bash
