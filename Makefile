@@ -15,7 +15,7 @@ base:
 .PHONY: neovim
 neovim:
 ifeq ("$(wildcard /usr/local/bin/nvim.appimage)","")
-	sudo wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -O /usr/local/bin/nvim.appimage
+	sudo wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage -O /usr/local/bin/nvim.appimage
 	sudo chmod a+x /usr/local/bin/nvim.appimage
 	sudo ln -sf /usr/local/bin/nvim.appimage /usr/local/bin/nvim
 endif
