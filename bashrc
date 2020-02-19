@@ -221,3 +221,6 @@ PATH=/sbin:/home/richman/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/game
 export PATH="/home/richman/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+# set compiledb
+eval "$(_COMPILEDB_COMPLETE=source compiledb)"
