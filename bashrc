@@ -222,5 +222,8 @@ export PATH="/home/richman/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+# pyenv: for install shared library python
+export PYTHON_CONFIGURE_OPTS="--enable-shared"
+
 # set compiledb
 eval "$(_COMPILEDB_COMPLETE=source compiledb)"
