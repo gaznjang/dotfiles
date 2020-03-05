@@ -3,7 +3,6 @@ init: base neovim profile bashrc tmux ssh_config gitconfig vim ime
 .PHONY: base
 base:
 	sudo aptitude install curl
-	sudo aptitude install python-pip
 	sudo aptitude install python3-pip
 	sudo aptitude install htop
 	sudo aptitude install build-essential
