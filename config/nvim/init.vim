@@ -15,7 +15,7 @@ if !filereadable(vimplug_exists)
   endif
   echo "Installing Vim-Plug..."
   echo ""
-  silent exec "!\curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+  silent exec "!\curl -fLo " . vimplug_exists . " --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
   let g:not_finish_vimplug = "yes"
 
   autocmd VimEnter * PlugInstall
@@ -27,10 +27,7 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "*****************************************************************************
 "" Plug install packages
 "*****************************************************************************
-" nerd tree
-"Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
 Plug 'scrooloose/nerdtree'
-
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -39,13 +36,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-scripts/grep.vim'
 Plug 'vim-scripts/CSApprox'
-Plug 'bronson/vim-trailing-whitespace'
 Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
-
-" ale - linter / autocompletion / formatter
 Plug 'w0rp/ale'
-
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
@@ -82,67 +75,6 @@ Plug 'tomasr/molokai'
 Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
 Plug 'ludwig/split-manpage.vim'
 
-"========================
-" autocomplete - deoplete
-" Plug 'Rip-Rip/clang_complete'
-
-
-" autocompletion (also a linter - diagnostics)
-Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clang-completer'}
-
-" autocomplete - roxma
-" Plug 'roxma/nvim-completion-manager'
-" Plug 'roxma/ncm-clang'
-
-" auto formatter
-Plug 'rhysd/vim-clang-format'
-
-" surround vim
-Plug 'tpope/vim-surround'
-
-" nerd commenter
-Plug 'scrooloose/nerdcommenter'
-
-" enhanced highlight
-Plug 'octol/vim-cpp-enhanced-highlight'
-
-" ctags indexer
-Plug 'vim-scripts/DfrankUtil'
-Plug 'vim-scripts/vimprj'
-Plug 'vim-scripts/indexer.tar.gz'
-
-" easy motion
-Plug 'easymotion/vim-easymotion'
-
-" A - for switching between source and header files
-Plug 'vim-scripts/a.vim'
-
-" colorscheme
-"Plug 'wombat256mod.vim'
-Plug 'nanotech/jellybeans.vim'
-Plug 'chriskempson/base16-vim'
-Plug 'morhetz/gruvbox'
-Plug 'w0ng/vim-hybrid'
-Plug 'tpope/vim-vividchalk'
-Plug 'lokaltog/vim-distinguished'
-
-" auto-close (for parenthesis)
-" TODO: broken, since clang_complete
-"Plug 'jiangmiao/auto-pairs'
-
-" ctrlp
-" TODO: learn
-" Plug 'kien/ctrlp.vim'
-
-" glsl color
-Plug 'tikhomirov/vim-glsl'
-
-" debugger
-"Plug 'critiqjo/lldb.nvim'
-"
-"========================end of copy
-" from: https://github.com/optimizacija/neovim-config/blob/master/init.vim
-"========================
 
 " python
 "" Python Bundle
@@ -150,8 +82,6 @@ Plug 'davidhalter/jedi-vim'
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 
 
-" robot framework
-Plug 'mfukar/robotframework-vim'
 "*****************************************************************************
 "*****************************************************************************
 
