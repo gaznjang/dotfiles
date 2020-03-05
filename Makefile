@@ -22,6 +22,8 @@ endif
 	rm -rf ~/.config/nvim
 	mkdir -p ~/.config/nvim
 	ln -sf `pwd`/config/nvim/init.vim ~/.config/nvim/init.vim
+	ln -sf `pwd`/config/nvim/local_init.vim ~/.config/nvim/local_init.vim
+	ln -sf `pwd`/config/nvim/local_bundles.vim ~/.config/nvim/local_bundles.vim
 
 .PHONY: profile
 profile:
