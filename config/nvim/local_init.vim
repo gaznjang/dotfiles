@@ -188,3 +188,22 @@ let g:highlightedyank_highlight_duration = 1000
 let g:SimpylFold_docstring_preview = 1
 let g:SimpylFold_fold_docstring = 0
 let g:SimpylFold_fold_import = 0
+
+"
+" 佈景（Theme）
+"
+
+" support true color
+set notermguicolors
+
+" airline theme
+set laststatus=2
+if !has('gui_running')
+  set t_Co=256
+endif
+set noshowmode
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }
+
+let g:airline_theme='tomorrow'
