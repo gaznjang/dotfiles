@@ -8,3 +8,6 @@ Plug 'neomake/neomake'
 
 " Multiple cursor editting
 Plug 'terryma/vim-multiple-cursors'
+
+" Highlight your yank area
+Plug 'machakann/vim-highlightedyank'

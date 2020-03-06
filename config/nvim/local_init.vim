@@ -165,3 +165,13 @@ call neomake#configure#automake('nrwi', 500)
 " (3) if a occurance want to skip, press <C-x>
 " (4) press <c> (meands to change) and enter insert mode. Input a new name.
 " (5) press <ESC> to exit multiple cursor editting mode
+
+
+"
+" Highlight your yank area by vim-highlightedyank
+"
+
+highlight HighlightedyankRegion cterm=reverse gui=reverse
+
+" set highlight duration time to 1000 ms, i.e., 1 second
+let g:highlightedyank_highlight_duration = 1000
