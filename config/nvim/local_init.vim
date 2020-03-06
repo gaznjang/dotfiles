@@ -57,3 +57,102 @@ nnoremap fs :w<CR>
 
 " Allows you to save files you opened without write permissions via sudo
 cmap w!! w !sudo tee %
+
+"--------------------------------------------------------------
+" Tabs and spaces handling
+set smarttab
+set cindent
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set shiftround
+set expandtab               " always uses spaces instead of tab characters
+
+
+" 文字搜尋：Serach configuration
+set ignorecase              " 搜尋時怱略英文字母的大小寫
+set smartcase               " turn on smartcase
+set incsearch
+set hlsearch                " highlight search results
+
+"--------------------------------------------------------------
+" 系統設定
+"--------------------------------------------------------------
+
+" Enable deoplete plugin
+let g:python3_host_prog = "~/.pyenv/shims/python"
+
+"
+" 程式語言　auto-completion
+"
+let g:deoplete#enable_at_startup = 1
+
+" automatically close the method preview window
+autocmd InsertLeave, CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" Navigate through the auto-completion list with Tab key
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+"
+" 狀態指示列
+"
+let g:airline_theme='luna'
+
+
+"
+" 自動調整排版格式
+"
+
+" Vim Command
+" :Neoformat! [python [yapf]]
+
+" Enable alignment
+let g:neoformat_basic_format_align = 1
+
+" Enable tab to spaces conversion
+let g:neoformat_basic_format_retab = 1
+
+" Enable trimming of trailing whitespace
+let g:neoformat_basic_format_trim = 1
+
+" Run a formatter on save
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
+
+"
+" 自動顯示定義處(Code Jump)
+"
+
+" Move the cursor to the class or method you want to check, then press the various supported shortcut provided by jedi-vim:
+"
+" - <leader>d: go to definition
+" - K:         check documentation of class or method
+" - <leader>n: show the usage of a name in current file
+" - <leader>r: rename a name
+
+" disable autocompletion, cause we use deoplete for completion
+let g:jedi#completions_enabled = 0
+
+" open the go-to function in split, not another buffer
+let g:jedi#use_splits_not_buffers = 'right'
+
+"
+" Code Checker by neomake
+"
+" Vim Command:
+"  - Neomake: Manually start syntax checking
+"  - lwindow / lopen: Navigate them using the buil-in methods
+"  - lprev / lnext : Go back and forth
+"
+"  pylint --generate-rcfile > ~/.pylintrc
+"  Usage Ref: https://stackoverflow.com/questions/4341746/how-do-i-disable-a-pylint-warning/23542817#23542817
+
+let g:neomake_python_enabled_makers = ['pylint']
+
+" Open the list automatically
+let g:neomake_open_list = 2
+
+" enable automatical code check: normal mode (after 1s; no delay when writing)
+call neomake#configure#automake('nrwi', 500)
