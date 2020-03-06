@@ -175,3 +175,16 @@ highlight HighlightedyankRegion cterm=reverse gui=reverse
 
 " set highlight duration time to 1000 ms, i.e., 1 second
 let g:highlightedyank_highlight_duration = 1000
+
+"
+" Code folding plugin by SimpyFold
+"
+
+" - zo： Open fold in current cursor postion
+" - zO： Open fold and sub-fold in current cursor postion recursively
+" - zc： Close the fold in current cursor position
+" - zC： Close the fold and sub-fold in current cursor position recursively
+
+let g:SimpylFold_docstring_preview = 1
+let g:SimpylFold_fold_docstring = 0
+let g:SimpylFold_fold_import = 0

@@ -11,3 +11,6 @@ Plug 'terryma/vim-multiple-cursors'
 
 " Highlight your yank area
 Plug 'machakann/vim-highlightedyank'
+
+" Code folding plugin
+Plug 'tmhedberg/SimpylFold'
