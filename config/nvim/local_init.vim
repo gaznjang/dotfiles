@@ -156,3 +156,12 @@ let g:neomake_open_list = 2
 
 " enable automatical code check: normal mode (after 1s; no delay when writing)
 call neomake#configure#automake('nrwi', 500)
+
+"
+" Multiple cursor editting by vim-multiple-cursors
+"
+" (1) move the cursor to a variable you want to rename
+" (2) press <C-n> to enter multiple cursor ediiting mode and let variable to be highlighted
+" (3) if a occurance want to skip, press <C-x>
+" (4) press <c> (meands to change) and enter insert mode. Input a new name.
+" (5) press <ESC> to exit multiple cursor editting mode
