@@ -18,7 +18,12 @@ ifeq ("$(wildcard /usr/local/bin/nvim.appimage)","")
 	sudo chmod a+x /usr/local/bin/nvim.appimage
 	sudo ln -sf /usr/local/bin/nvim.appimage /usr/local/bin/nvim
 endif
-	rm -rf ~/.config/nvim
+
+.PHONY: neovim-config
+neovim-config:
+ifneq ("$(wildcard ~/.config/nvim)", "")
+	mv ~/.config/nvim ~/.config/nvim.old
+endif
 	mkdir -p ~/.config/nvim
 	ln -sf `pwd`/config/nvim/init.vim ~/.config/nvim/init.vim
 	ln -sf `pwd`/config/nvim/local_init.vim ~/.config/nvim/local_init.vim
