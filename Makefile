@@ -12,6 +12,10 @@ base:
 	sudo aptitude install meld
 	sudo aptitude install git
 
+.PHONY: font
+font:
+	wget -q -O tmp.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/SourceCodePro.zip && unzip tmp.zip -d ~/.local/share/fonts/ && rm tmp.zip
+
 .PHONY: spacevim
 spacevim:
 	curl -sLf https://spacevim.org/cn/install.sh | bash
