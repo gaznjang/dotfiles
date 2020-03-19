@@ -12,6 +12,17 @@ base:
 	sudo aptitude install meld
 	sudo aptitude install git
 
+.PHONY: spacevim
+spacevim:
+	curl -sLf https://spacevim.org/cn/install.sh | bash
+
+.PHONY: spacevim-config
+spacevim-config:
+ifneq ("$(wildcard $(HOME)/.SpaceVim.d/init.toml)", "")
+	mv $(HOME)/.SpaceVim.d/init.toml $(HOME)/.SpaceVim.d/init.toml.old
+endif
+	ln -sf $(PWD)/init.toml $(HOME)/.SpaceVim.d/init.toml
+
 .PHONY: neovim
 neovim:
 ifeq ("$(wildcard $(local_bin)/nvim.appimage)","")
