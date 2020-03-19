@@ -1,3 +1,4 @@
+local_bin = $(HOME)/.local/bin
 init: base neovim profile bashrc tmux ssh_config gitconfig vim ime
 
 .PHONY: base
@@ -13,10 +14,10 @@ base:
 
 .PHONY: neovim
 neovim:
-ifeq ("$(wildcard /usr/local/bin/nvim.appimage)","")
-	sudo wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage -O /usr/local/bin/nvim.appimage
-	sudo chmod a+x /usr/local/bin/nvim.appimage
-	sudo ln -sf /usr/local/bin/nvim.appimage /usr/local/bin/nvim
+ifeq ("$(wildcard $(local_bin)/nvim.appimage)","")
+	wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage -O $(local_bin)/nvim.appimage
+	chmod a+x $(local_bin)/nvim.appimage
+	ln -sf $(local_bin)/nvim.appimage $(local_bin)/nvim
 endif
 
 .PHONY: neovim-config
