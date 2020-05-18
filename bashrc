@@ -215,15 +215,13 @@ export QT_IM_MODULE=ibus
 export LC_TIME=en_US.UTF-8
 
 # set PATH
-PATH=/sbin:/home/richman/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+PATH=/sbin:$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
 
 # Load pyenv automatically
-export PATH="/home/richman/.pyenv/bin:$PATH"
+export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # pyenv: for install shared library python
 export PYTHON_CONFIGURE_OPTS="--enable-shared"
 
-# set compiledb
-eval "$(_COMPILEDB_COMPLETE=source compiledb)"

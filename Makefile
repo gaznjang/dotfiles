@@ -30,8 +30,8 @@ endif
 .PHONY: neovim
 neovim:
 ifeq ("$(wildcard $(local_bin)/nvim.appimage)","")
-	wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage -O $(local_bin)/nvim.appimage
-	chmod a+x $(local_bin)/nvim.appimage
+	wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage -O $(local_bin)/nvim.appimage && \
+	chmod a+x $(local_bin)/nvim.appimage && \
 	ln -sf $(local_bin)/nvim.appimage $(local_bin)/nvim
 endif
 
