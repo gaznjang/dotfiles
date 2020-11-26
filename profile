@@ -55,3 +55,16 @@ fi
 if [ -e "${HOME}/.pyenv/shims/compiledb" ]; then
     eval "$(_COMPILEDB_COMPLETE=source compiledb)"
 fi
+
+# for debmake
+DEBEMAIL="chia-hsin.chang@host
+DEBFULLNAME="Chia-Hsin Chang"
+export DEBEMAIL DEBFULLNAME
+
+# for mc
+export HISTCONTROL=ignoreboth
+. /usr/lib/mc/mc.sh
+
+# for quilt
+alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
+complete -F _quilt_completion $_quilt_complete_opt dquilt
