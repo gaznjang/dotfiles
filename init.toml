@@ -23,6 +23,10 @@
     buffer_index_type = 4
     enable_tabline_filetype_icon = true
     enable_statusline_mode = false
+    relativenumber = false
+    lint_on_the_fly = true
+    enable_vimfiler_welcome = false
+    default_indent = 4
 
 # Enable autocomplete layer
 [[layers]]
@@ -33,7 +37,40 @@ auto-completion-tab-key-behavior = "smart"
 [[layers]]
 name = 'shell'
 default_position = 'top'
-default_height = 30
+default_height = 46
+
+[[layers]]
+name = "sudo"
 
 [[layers]]
 name = "lang#python"
+pydocstring_doq_path = "${HOME}/.pyenv/shims/doq"
+
+[[layers]]
+name = "lang#c"
+
+[[layers]]
+name = "denite"
+# <Leader> f <Space>  Fuzzy find menu:CustomKeyMaps
+# <Leader> f p        Fuzzy find menu:AddedPlugins
+# <Leader> f e        Fuzzy find register
+# <Leader> f h        Fuzzy find history/yank
+# <Leader> f j        Fuzzy find jump, change
+# <Leader> f l        Fuzzy find location list
+# <Leader> f m        Fuzzy find output messages
+# <Leader> f o        Fuzzy find outline
+# <Leader> f q        Fuzzy find quick fix
+# <Leader> f r        Fuzzy find Unite window
+
+[[layers]]
+name = "tmux"
+
+[[layers]]
+name = "fzf"
+
+[[layers]]
+name = "gtags"
+gtagslabel = "pygments"
+
+[[layers]]
+name = "git"
