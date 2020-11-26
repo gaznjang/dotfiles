@@ -104,15 +104,17 @@ function parse_git_dirty {
 }
 
 if [ "$color_prompt" = yes ]; then
-    if [ "`id -u`" -eq 0 ]; then
-        PS1="\[\e[01;31m\]\u\[\e[m\]@\[\e[01;32m\]\h\[\e[m\]:\[\e[01;34m\]\w\[\e[m\]\[\e[01;36m\]\`parse_git_branch\`\[\e[m\]\n# "
-    else
-        PS1="\[\e[01;32m\]\u\[\e[m\]@\[\e[01;33m\]\h\[\e[m\]:\[\e[01;34m\]\w\[\e[m\]\[\e[01;36m\]\`parse_git_branch\`\[\e[m\]\n$ "
-    fi
+    PS1="\[\e[01;32m\]\u\[\e[m\]@\[\e[01;33m\]\h\[\e[m\]:\[\e[01;34m\]\w\[\e[m\]\[\e[01;36m\]\`parse_git_branch\`\[\e[m\]"
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1="\u@\h:\w\`parse_git_branch\`"
 fi
 unset color_prompt force_color_prompt
+
+if [ "`id -u`" -eq 0 ]; then
+    PS1="$PS1\n# "
+else
+    PS1="$PS1\n$ "
+fi
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
