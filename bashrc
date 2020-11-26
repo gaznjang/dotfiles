@@ -222,3 +222,8 @@ if [ -e "${HOME}/.pyenv/bin/pyenv" ]; then
     # pyenv: for install shared library python
     export PYTHON_CONFIGURE_OPTS="--enable-shared"
 fi
+
+# set compiledb
+if [ -e "${HOME}/.pyenv/shims/compiledb" ]; then
+    eval "$(_COMPILEDB_COMPLETE=source compiledb)"
+fi
