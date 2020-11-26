@@ -217,7 +217,7 @@ export QT_IM_MODULE=ibus
 export LC_TIME=en_US.UTF-8
 
 # set PATH
-PATH=/sbin:$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+PATH=/usr/local/sbin:/usr/sbin:/sbin:$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
 
 if [ -e "${HOME}/.pyenv/bin/pyenv" ]; then
     # Load pyenv automatically
