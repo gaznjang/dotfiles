@@ -197,33 +197,3 @@ else
         true
     }
 fi
-
-EDITOR=nvim
-VISUAL=$EDITOR
-export EDITOR VISUAL
-
-# environment for ibus
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
-
-# set date/time display language
-export LC_TIME=en_US.UTF-8
-
-# set PATH
-PATH=/usr/local/sbin:/usr/sbin:/sbin:$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
-
-if [ -e "${HOME}/.pyenv/bin/pyenv" ]; then
-    # Load pyenv automatically
-    export PATH="$HOME/.pyenv/bin:$PATH"
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-
-    # pyenv: for install shared library python
-    export PYTHON_CONFIGURE_OPTS="--enable-shared"
-fi
-
-# set compiledb
-if [ -e "${HOME}/.pyenv/shims/compiledb" ]; then
-    eval "$(_COMPILEDB_COMPLETE=source compiledb)"
-fi
