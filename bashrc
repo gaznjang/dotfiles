@@ -219,11 +219,12 @@ export LC_TIME=en_US.UTF-8
 # set PATH
 PATH=/sbin:$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
 
-# Load pyenv automatically
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+if [ -e "${HOME}/.pyenv/bin/pyenv" ]; then
+    # Load pyenv automatically
+    export PATH="$HOME/.pyenv/bin:$PATH"
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
 
-# pyenv: for install shared library python
-export PYTHON_CONFIGURE_OPTS="--enable-shared"
-
+    # pyenv: for install shared library python
+    export PYTHON_CONFIGURE_OPTS="--enable-shared"
+fi
