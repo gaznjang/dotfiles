@@ -112,7 +112,7 @@ else
 fi
 unset color_prompt force_color_prompt
 
-if [ "`id -u`" -eq 0 ]; then
+if [ "$(id -u)" -eq 0 ]; then
     PS1="$PS1\n# "
 else
     PS1="$PS1\n$ "
