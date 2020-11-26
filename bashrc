@@ -57,7 +57,8 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 # get current branch in git repo
-function parse_git_branch {
+function parse_git_branch
+{
 	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
 	if [ ! "${BRANCH}" == "" ]
 	then
@@ -69,7 +70,8 @@ function parse_git_branch {
 }
 
 # get current status of git repo
-function parse_git_dirty {
+function parse_git_dirty
+{
 	status=`git status 2>&1 | tee`
 	dirty=`echo -n "${status}" 2> /dev/null | grep "modified:" &> /dev/null; echo "$?"`
 	untracked=`echo -n "${status}" 2> /dev/null | grep "Untracked files" &> /dev/null; echo "$?"`
@@ -176,13 +178,15 @@ if ! shopt -oq posix; then
 fi
 
 # Hide terminal output when executing gvim
-function gvim() {
+function gvim
+{
   nohup /usr/bin/gvim -f "$@" >& /dev/null
 }
 
 # Wrap tmux with update-environment|update-env|env-update for correct the $DISPLAY before re-attach
 
-function tmux() {
+function tmux
+{
     local tmux=$(type -fp tmux)
     case "$1" in
         update-environment|update-env|env-update)
