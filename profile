@@ -57,7 +57,7 @@ if [ -e "${HOME}/.pyenv/shims/compiledb" ]; then
 fi
 
 # for debmake
-DEBEMAIL="chia-hsin.chang@host
+DEBEMAIL="chia-hsin.chang@host"
 DEBFULLNAME="Chia-Hsin Chang"
 export DEBEMAIL DEBFULLNAME
 
